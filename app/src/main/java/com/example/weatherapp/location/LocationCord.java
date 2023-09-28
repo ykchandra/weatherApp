@@ -1,4 +1,4 @@
-package com.aniketjain.weatherapp.location;
+package com.example.weatherapp.location;
 
 public class LocationCord {
     public static String lat = "";

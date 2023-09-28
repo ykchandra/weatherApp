@@ -1,4 +1,4 @@
-package com.aniketjain.weatherapp.adapter;
+package com.example.weatherapp.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -18,8 +18,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.aniketjain.weatherapp.R;
-import com.aniketjain.weatherapp.update.UpdateUI;
-import com.aniketjain.weatherapp.url.URL;
+import com.example.weatherapp.update.UpdateUI;
+import com.example.weatherapp.url.URL;
 import com.github.ybq.android.spinkit.SpinKitView;
 
 import org.json.JSONException;

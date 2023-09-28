@@ -1,8 +1,4 @@
-package com.aniketjain.weatherapp;
-
-import static com.aniketjain.weatherapp.location.CityFinder.getCityNameUsingNetwork;
-import static com.aniketjain.weatherapp.location.CityFinder.setLongitudeLatitude;
-import static com.aniketjain.weatherapp.network.InternetConnectivity.isInternetConnected;
+package com.example.weatherapp;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -28,12 +24,15 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.aniketjain.weatherapp.adapter.DaysAdapter;
+import com.aniketjain.weatherapp.R;
+import com.example.weatherapp.adapter.DaysAdapter;
 import com.aniketjain.weatherapp.databinding.ActivityHomeBinding;
-import com.aniketjain.weatherapp.location.LocationCord;
-import com.aniketjain.weatherapp.toast.Toaster;
-import com.aniketjain.weatherapp.update.UpdateUI;
-import com.aniketjain.weatherapp.url.URL;
+import com.example.weatherapp.location.LocationCord;
+import com.example.weatherapp.toast.Toaster;
+import com.example.weatherapp.update.UpdateUI;
+import com.example.weatherapp.url.URL;
+import com.example.weatherapp.location.CityFinder;
+import com.example.weatherapp.network.InternetConnectivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.play.core.appupdate.AppUpdateInfo;
@@ -185,8 +184,8 @@ public class HomeActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PERMISSION_CODE);
         } else {
             client.getLastLocation().addOnSuccessListener(location -> {
-                setLongitudeLatitude(location);
-                city = getCityNameUsingNetwork(this, location);
+                CityFinder.setLongitudeLatitude(location);
+                city = CityFinder.getCityNameUsingNetwork(this, location);
                 getTodayWeatherInfo(city);
             });
         }
@@ -284,7 +283,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void checkConnection() {
-        if (!isInternetConnected(this)) {
+        if (!InternetConnectivity.isInternetConnected(this)) {
             hideMainLayout();
             Toaster.errorToast(this, "Please check your internet connection");
         } else {
