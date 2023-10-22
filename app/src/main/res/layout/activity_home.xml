@@ -7,17 +7,28 @@
     android:background="@color/mainBGColor"
     tools:context="com.example.weatherapp.HomeActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aref_ruqaa"
+        android:text="Mousam"
+        android:textAlignment="center"
+        android:textColor="#EDE8E8"
+        android:textSize="24sp" />
+
     <include
         android:id="@+id/layout"
         layout="@layout/main_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="465dp"
         android:layout_above="@id/day_rv"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="33dp"
         android:layout_marginBottom="160dp" />
 
     <com.github.ybq.android.spinkit.SpinKitView
